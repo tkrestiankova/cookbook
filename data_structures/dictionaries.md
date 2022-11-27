@@ -124,3 +124,79 @@ for key, value in zip(keys, values):
 print(my_dict)
 >>> {"key_1": "value_1", "key_2": "value_2", "key_3": "value_3"}
 ```
+
+## Operations
+
+We'll be using the `example_dict` to demonstrate the operations
+
+```python
+example_dict = {"key": "value"}
+```
+
+- check if a key exists in a dictionary
+
+```python
+example_dict = {"key": "value"}
+"key" in example_dict
+>>> True
+"key_x" in example_dict
+>>> False
+```
+
+- print keys, values or items
+
+  ```python
+  example_dict.items()
+  >>> dict_items([('key', 'value')])
+  example_dict.keys()
+  >>> dict_keys(['key'])
+  example_dict.values()
+  >>> dict_values(['value'])
+  ```
+- copy a dictionary (make a shallow copy)
+
+  - This is a very useful feature, because dicts are mutable
+
+  ```
+  id(example_dict)
+  >>> 4499428352
+  copy_of_example = example_dict.copy()
+  >>> 4502470336
+  ```
+- return and delete a value or both key and value
+
+  ```python
+  # if we want to return the value and delete key:value pair, we use .pop()
+  example_dict.pop("key")
+  >>> "value"
+  example_dict.pop("key")
+  >>> Traceback (most recent call last):
+  >>>  File "<stdin>", line 1, in <module>
+  >>> KeyError: 'key'
+
+  # if we want to return both key and value and then delete the pair, we use .popitem()
+  # items are returned in LIFO order
+  example_dict.popitem()
+  >>> ('key', 'value')
+  ```
+- update (probably the most common operation)
+
+  ```python
+  new_dict = {"key_x": "value_x"}
+  example_dict.update(new_dict)
+  print(example_dict)
+  >>> {"key": "value", "key_x": "value_x"}
+
+  # Let's demonstrate that the order is important
+  dict_a = {"key": "a"}
+  dict_b = {"key": "b"}
+
+  dict_a.update(dict_b)
+  print(dict_a)
+  >>> {"key": "b"}
+
+  # But if we did 
+  dict_b.update(dict_a)
+  print(dict_b)
+  >>> {"key": "a"}
+  ```
