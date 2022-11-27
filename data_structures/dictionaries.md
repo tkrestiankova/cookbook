@@ -157,7 +157,7 @@ example_dict = {"key": "value"}
 
   - This is a very useful feature, because dicts are mutable
 
-  ```
+  ```python
   id(example_dict)
   >>> 4499428352
   copy_of_example = example_dict.copy()
