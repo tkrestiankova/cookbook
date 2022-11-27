@@ -2,6 +2,37 @@
 
 - indexed by keys (key can be any immutable data type)
 - dictionaries are key:value pairs, where all keys must be unique
+- they are unordered and mutable objects
+  - *A mutable object is an object whose state can be modified after it is defined*
+
+```python
+example_dict = {
+    "key_1": "value_1",
+    "key_2": "value_2",
+    "key_3": "value_3"
+}
+
+# id(obj) gets a memory address of an object `obj`
+print(id(example_dict))
+>>> 4499428352
+
+# Let;s change the state of the `example_dict` and check the memory address again
+example_dict.update({"key_x": "value_x"})
+print(id(example_dict))
+>>> 4499428352  # THE SAME ADDRESS
+
+# Now let's have a look at an immutable object, such as string
+my_str = "Hello"
+print(id(my_str))
+>>> 4502273456
+
+# Now we modify the state of `my_str` and check the memory address again
+my_str = "Hello world"
+print(id(my_str))
+>>> 4502273072  # A NEW ADDRESS
+
+```
+
 - most common operations are:
   - **storing** a value with a key
   - **extracting** the value given the key
@@ -58,6 +89,14 @@ dict_from_keyword_args = dict(
     key_3="value_3"
 )
 print(dict_from_keyword_args)
+>>> {"key_1": "value_1", "key_2": "value_2", "key_3": "value_3"}
+
+# We can even mix these approaches
+dict_from_dict_and_keyword_args = dict(
+    {"key_1": "value_1", "key_2": "value_2"},
+    key_3="value_3"
+)
+print(dict_from_dict_and_keyword_args)
 >>> {"key_1": "value_1", "key_2": "value_2", "key_3": "value_3"}
 
 # Using the constructor with no value creates an empty dictionary
