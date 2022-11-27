@@ -78,7 +78,7 @@ for key in keys:
 print(my_dict)
 >>> {"key_1": "value_1", "key_2": "value_2", "key_3": "value_3"}
 
-# Optionally, we can use .`zip() over those sequences
+# Optionally, we can use `.zip()` over those sequences
 my_dict = dict()
 for key, value in zip(keys, values):
     my_dict.update({key: value})
