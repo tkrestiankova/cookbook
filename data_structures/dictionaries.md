@@ -161,6 +161,7 @@ example_dict = {"key": "value"}
   id(example_dict)
   >>> 4499428352
   copy_of_example = example_dict.copy()
+  id(copy_of_example)
   >>> 4502470336
   ```
 - return and delete a value or both key and value
