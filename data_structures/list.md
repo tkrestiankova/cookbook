@@ -112,7 +112,7 @@ print(cities)
 ```
 The sort function will not work with custom classes. For custom classes, we need to use `lambda` function as a `key` parameter.
 Why? Because sorting is basically just `<` comparison operation between items, and `<` operator cannot compare objects.
-```
+```python
 class Dog:
     def __init__(self, name: str, breed: str, age: int):
         self.name = name
