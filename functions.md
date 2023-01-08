@@ -23,17 +23,64 @@ Good examples, that we most likely use on a daily basis, might be constructors, 
 Here is the full list of Python built-in functions: https://docs.python.org/3/library/functions.html
 
 ### User-defined functions
+These are designed by a developer. A function can perform any task and the goal is to reduce complexity of a program.
 
 ### Lambda functions
+These are also knowna as anonymous functions or lambda expressions. Instead of `def` keyword, we create them with `lambda` keyword. Lambdas are no so common because their use is very restricted. It allows a single expression, the result of which is the return value. This means that no other language features, like multiple statements, conditionals, iteration or exception handling can be included.
+
+```python
+sum = lambda x, y: x + y
+
+sum(2, 3)
+```
 
 ### Closures and decorators
+_"A decorator is a function that takes in a function and returns an augmented copy of that function. When writing closures and decorators, 
+you must keep the scope of each function in mind. In Python, functions define scope. Closures have access to the scope of the function 
+that returns them; the decorator's scope."_ ([source](https://towardsdatascience.com/decorators-and-closures-by-example-in-python-382758321164))
 
-### Recursion functions
+#### Closure
 
+```python
+def outer_function(name: str):
+    def inner_function():
+        print(f"I have access to outer's function scope. This is the name: {name}")
+    return inner_function
+    
+i_hold_value = outer_function(name="Tamara")
+i_hold_value()
+```
+as a result, this will print:
+```shell
+I have access to outer's function scope. This is the name: Tamara
+```
+
+#### Decorator
+
+```python
+def log(func):
+    def _log(*args, **kwargs):
+        print("Function start")
+        func()
+        print("Function done")
+    return _log
+    
+@log
+def foo():
+    print("I am inside the function")
+
+foo()
+```
+
+as a result, this will print:
+
+```shell
+Function start
+I am inside the function
+Function done
+```
 
 
 TODO:
-- type of functions ()
 - arguments (limits, 256 until Python 3.7, no limit after that; type of arguments)
-- lambda expressions
-- closures / decorators
+- function scopes
