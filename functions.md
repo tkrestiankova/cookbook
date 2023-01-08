@@ -14,6 +14,25 @@ def welcome_message(name: str) -> str:
 
 To create a function, we use a `def` keyword. If no `return` statement is present in the function body, the function returns `None`.
 
+Ever function is an object (like everything else in Python), but can an object be a function? No. However, we can do this:
+
+```python
+class Greeter:
+    def __init__(self, name: str):
+        self.name = name
+    def __call__(self):
+        print(f"Hello {self.name}")
+
+greet = Greeter(name="Tami")
+greet()  # call object like a function
+```
+
+this will return:
+
+```shell
+Hello Tami
+```
+
 ## Types of Python functions
 
 ### Built-in functions
@@ -80,7 +99,5 @@ I am inside the function
 Function done
 ```
 
+## Arguments
 
-TODO:
-- arguments (limits, 256 until Python 3.7, no limit after that; type of arguments)
-- function scopes
