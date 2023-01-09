@@ -218,3 +218,21 @@ this will result in:
 SyntaxError: positional argument follows keyword argument
 ```
 
+There are situations when we do not know the number of arguments that will be passed into a function in advance. Python also offers so called **arbitrary arguments**. 
+```python
+def sum_numbers(*numbers):
+    result = 0
+    for number in numbers:
+        result += number
+    print(f"Sum of {numbers} is {result}")
+    
+sum_numbers(1, 2, 3)
+sum_numbers(14, 52, 63, 56, 21)
+sum_numbers(15)
+```
+this will result in:
+```shell
+Sum of (1, 2, 3) is 6
+Sum of (14, 52, 63, 56, 21) is 206
+Sum of (15,) is 15
+```
