@@ -132,6 +132,32 @@ Test.foo()  # no need for Test().foo()
 ```
 
 ### @property
+A Python `@property` decorator is a pythonic way to use getters and setters in OOP. 
+In Python, the `@property` decorator is a built-in function that allows us to define methods that can be accessed like an attribute.
+This can be useful when we want to add some additional behavior to the getting or setting of an attribute, or when we want to define a 
+method that is more readable and easier to use than a traditional method.
+
+```python
+class Person:
+    def __init__(self, first_name: str, last_name: str):
+        self.first_name = first_name
+        self.last_name = last_name
+    
+    @property
+    def full_name(self) -> str:
+        return f"{self.first_name} {self.last_name}"
+        
+p = Person(first_name="John", last_name="Doe")
+print(p.first_name)
+print(p.last_name)
+print(p.full_name)
+```
+this will return
+```shell
+John
+Doe
+John Doe
+```
 
 ## Arguments
 
