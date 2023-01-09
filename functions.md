@@ -160,4 +160,61 @@ John Doe
 ```
 
 ## Arguments
+Arguments or parameters are values accepted by a Python function. It allows us to input information into a function.
+
+```python
+def foo(a: int, b: str = "hello"):
+    pass
+```
+
+In the above example, `a` and `b` are both arguments. 
+As you can see, arguments can have default values. It means, that passing that argument when calling a function becomes optional, if the argument value is not present, the default one will be used.
+
+We distinguish between 2 types of arguments in Python: positional and keyword arguments.
+- Positional arguments are simply an ordered list of inputs in a Python function call that correspond to the order of the parameters defined in the function header
+- On the other hand, a keyword argument is supplied with both a parameter name AND its corresponding value.
+
+```python
+def foo(width: float, height: float) -> None:
+    print(f"Width: {width}; Height: {height}")
+
+foo(155.5, 455.5)
+foo(455.5, 155.5)
+```
+this will result in:
+```shell
+Width: 155.5; Height: 455.5
+Width: 455.5; Height: 155.5
+```
+As you can see, when it comes to positional arguments, the order matters. Python uses the position of the argumets to determine the parameter to map each input value to.
+
+```python
+def foo(width: float, height: float) -> None:
+    print(f"Width: {width}; Height: {height}")
+
+foo(width=155.5, height=455.5)
+foo(height=455.5, width=155.5)
+```
+this will result in:
+```shell
+Width: 155.5; Height: 455.5
+Width: 155.5; Height: 455.5
+```
+In this example you can see that the order of arguments does not matter, because we specify exactly which parameter refers to each value.
+
+Note: We can mix these arguments in a single function call, however, all positional arguments must go before the keyword arguments
+
+```python
+def foo(width: float, height: float) -> None:
+    print(f"Width: {width}; Height: {height}")
+
+foo(height=455.5, 155.5)
+```
+this will result in:
+```shell
+  File "<input>", line 4
+    foo(height=455.5, 155.5)
+                           ^
+SyntaxError: positional argument follows keyword argument
+```
 
