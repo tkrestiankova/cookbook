@@ -14,7 +14,7 @@ def welcome_message(name: str) -> str:
 
 To create a function, we use a `def` keyword. If no `return` statement is present in the function body, the function returns `None`.
 
-Ever function is an object (like everything else in Python), but can an object be a function? No. However, we can do this:
+Every function is an object (like everything else in Python), but can an object be a function? No. However, we can do this:
 
 ```python
 class Greeter:
@@ -45,7 +45,7 @@ Here is the full list of Python built-in functions: https://docs.python.org/3/li
 These are designed by a developer. A function can perform any task and the goal is to reduce complexity of a program.
 
 ### Lambda functions
-These are also knowna as anonymous functions or lambda expressions. Instead of `def` keyword, we create them with `lambda` keyword. Lambdas are no so common because their use is very restricted. It allows a single expression, the result of which is the return value. This means that no other language features, like multiple statements, conditionals, iteration or exception handling can be included.
+These are also known as anonymous functions or lambda expressions. Instead of `def` keyword, we create them with `lambda` keyword. Lambdas are not so common because their use is very restricted. It allows a single expression, the result of which is the return value. This means that no other language features, like multiple statements, conditionals, iteration or exception handling can be included.
 
 ```python
 sum = lambda x, y: x + y
@@ -98,6 +98,40 @@ Function start
 I am inside the function
 Function done
 ```
+
+## Methods
+Methods, unlike functions, are associated with the object/instance of the class they belong to. A method is called "on" an object and we cannot invoke it just by its name.
+
+```python
+def foo():
+    print("I am a function")
+    
+class Test:
+    def foo(self):
+        print("I am a method")
+        
+# call a function
+foo()
+
+# call a method
+test_obj = Test()
+test_obj.foo()
+```
+
+### Static method
+A difference between a method and a static method is that a static method is bound to the class itself, not an instance of the object. 
+It means, that static method can be called without an object for that class.
+
+```python
+class Test:
+    @staticmethod
+    def foo():
+        print("I am a static method")
+        
+Test.foo()  # no need for Test().foo()
+```
+
+### @property
 
 ## Arguments
 
